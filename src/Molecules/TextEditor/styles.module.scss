@@ -1,0 +1,50 @@
+.wrapperEditor {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	.wrapperText {
+		padding: 20px;
+	}
+	.btnClose {
+		position: relative;
+		color: black;
+		font-weight: bold;
+		font-size: 21px;
+		background: white;
+		transform: rotate(45deg);
+		border: 2px solid white;
+		border-radius: 50%;
+		bottom: -15px;
+		right: 10px;
+		&:hover {
+			background: black;
+			color: white;
+			transition: .25s ease;
+		}
+	}
+	.span {
+		padding: 5px;
+	}
+	.circlePickerWrapper {
+		position: relative;
+		padding: 5px;
+		border: 1px solid black;
+		margin: 20px;
+		.btnCloseCirclePicker{
+			position: absolute;
+			color: black;
+			font-weight: bold;
+			font-size: 21px;
+			background: white;
+			transform: rotate(45deg);
+			border: 1px solid black;
+			border-radius: 50%;
+			top: -20px;
+			left: -20px;
+			&:hover {
+				background: red;
+				transition: .25s ease;
+			}
+		}
+	}
+}
