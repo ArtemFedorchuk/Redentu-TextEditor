@@ -8,7 +8,7 @@ import {
 const initialState = {
   fontColor: '',
   backgroundColor: '',
-  fontSize: ''
+  fontSize: 16,
 };
 
 const editStylesReducer = (state = initialState, action) => {

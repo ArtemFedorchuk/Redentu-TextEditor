@@ -46,5 +46,16 @@
 				transition: .25s ease;
 			}
 		}
+		.fzPickerWrapper {
+			position: relative;
+			padding: 5px;
+			margin: 20px;
+			.btnCloseFontSize {
+				background: blueviolet;
+			}
+			.select {
+				padding: 5px;
+			}
+		}
 	}
 }
