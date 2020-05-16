@@ -11,6 +11,7 @@ import {
   setColorText,
   setBackgroundText,
   setFontSize,
+  setText
 } from '../../store/actions';
 // import store from '../../store/redux-store';
 
@@ -22,6 +23,8 @@ const TextEditor = ( props ) => {
     setColorText,
     setBackgroundText,
     setFontSize,
+    setText,
+    newText,
   } = props;
 
   // console.log( 'store ==> ', store.getState() );
@@ -33,16 +36,16 @@ const TextEditor = ( props ) => {
   const colorChange = (event) => {
     setColorText(event.hex);
   };
-
   const backgroundChange = (event) => {
     setBackgroundText(event.hex);
   };
-
   const fzChange = (event) => {
     const number = Number(event.target.value);
     setFontSize(number)
   };
-
+  const newTextChange = (event) => {
+    setText(event.currentTarget.textContent)
+  };
   const validationSetStyles = (colorParam, bgParam, fzParam) => {
     if(colorParam) {
       return (
@@ -106,8 +109,9 @@ const TextEditor = ( props ) => {
           suppressContentEditableWarning={true}
           className={styles.span}
           style={{color:`${fontColor}`, background: `${backgroundColor}`, fontSize: fontSize}}
+          onInput={(event) => newTextChange(event)}
         >
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          {newText}
         </span>
       </div>
       <div>
@@ -126,7 +130,8 @@ const mapStateToProps = state => {
   return {
     fontColor: state.edit.fontColor,
     backgroundColor: state.edit.backgroundColor,
-    fontSize: state.edit.fontSize
+    fontSize: state.edit.fontSize,
+    newText: state.edit.newText
   };
 };
 
@@ -134,6 +139,7 @@ const mapDispatchToProps = {
   setColorText,
   setBackgroundText,
   setFontSize,
+  setText,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TextEditor)
