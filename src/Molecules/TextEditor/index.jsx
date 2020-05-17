@@ -24,10 +24,9 @@ const TextEditor = ( props ) => {
     setBackgroundText,
     setFontSize,
     setText,
+    // eslint-disable-next-line no-unused-vars
     newText,
   } = props;
-
-  // console.log( 'store ==> ', store.getState() );
 
   const [ color, setColor ] = useState(false);
   const [ bg, setBg ] = useState(false);
@@ -44,7 +43,7 @@ const TextEditor = ( props ) => {
     setFontSize(number)
   };
   const newTextChange = (event) => {
-    setText(event.currentTarget.textContent)
+    setText(event.currentTarget.textContent);
   };
   const validationSetStyles = (colorParam, bgParam, fzParam) => {
     if(colorParam) {
@@ -100,18 +99,36 @@ const TextEditor = ( props ) => {
     return false
   };
 
+  const setSelections = () => {
+    console.log('color ==> ', color);
+
+    if(color === true) {
+      const editFontColor = document.execCommand('foreColor', false, fontColor);
+      console.log('editFontColor ==> ', editFontColor);
+    }
+    if(bg === true) {
+      const editBackground = document.execCommand ('backColor', false, backgroundColor);
+      console.log('editBackground ==> ', editBackground);
+    }
+    if(fz === true) {
+      const editFontSize = document.execCommand ('fontSize', false, fontSize);
+      console.log('editFontSize ==> ', editFontSize);
+    }
+  };
+
   return (
     <div className={styles.wrapperEditor}>
       <h1 className={styles.h1}>Text Editor</h1>
       <div className={styles.wrapperText}>
         <span
+          onClick={setSelections}
           contentEditable={true}
           suppressContentEditableWarning={true}
           className={styles.span}
-          style={{color:`${fontColor}`, background: `${backgroundColor}`, fontSize: fontSize}}
+          // style={{color:`${fontColor}`, background: `${backgroundColor}`, fontSize: fontSize}}
           onInput={(event) => newTextChange(event)}
         >
-          {newText}
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
         </span>
       </div>
       <div>
