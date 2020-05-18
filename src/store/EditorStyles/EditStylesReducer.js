@@ -9,8 +9,8 @@ import {
 const initialState = {
   fontColor: '',
   backgroundColor: '',
-  fontSize: 16,
-  newText: 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s.'
+  fontSize: 0,
+  newText: ''
 };
 
 const editStylesReducer = (state = initialState, action) => {

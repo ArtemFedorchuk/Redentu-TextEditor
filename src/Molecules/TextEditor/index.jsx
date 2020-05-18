@@ -13,7 +13,6 @@ import {
   setFontSize,
   setText
 } from '../../store/actions';
-// import store from '../../store/redux-store';
 
 const TextEditor = ( props ) => {
   const {
@@ -31,6 +30,7 @@ const TextEditor = ( props ) => {
   const [ color, setColor ] = useState(false);
   const [ bg, setBg ] = useState(false);
   const [ fz, setFz ] = useState(false);
+  // eslint-disable-next-line no-unused-vars
 
   const colorChange = (event) => {
     setColorText(event.hex);
@@ -82,10 +82,14 @@ const TextEditor = ( props ) => {
             name='FontSize'
             id={fontSize}
           >
-            <option value='16'>16</option>
-            <option value='18'>18</option>
-            <option value='20'>20</option>
-            <option value='22'>22</option>
+            <option value='0' aria-disabled='true'>size</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
           </select>
           <button
             className={styles.btnCloseFontSize}
@@ -100,19 +104,17 @@ const TextEditor = ( props ) => {
   };
 
   const setSelections = () => {
-    console.log('color ==> ', color);
-
     if(color === true) {
+      // eslint-disable-next-line no-unused-vars
       const editFontColor = document.execCommand('foreColor', false, fontColor);
-      console.log('editFontColor ==> ', editFontColor);
     }
     if(bg === true) {
+      // eslint-disable-next-line no-unused-vars
       const editBackground = document.execCommand ('backColor', false, backgroundColor);
-      console.log('editBackground ==> ', editBackground);
     }
     if(fz === true) {
+      // eslint-disable-next-line no-unused-vars
       const editFontSize = document.execCommand ('fontSize', false, fontSize);
-      console.log('editFontSize ==> ', editFontSize);
     }
   };
 
@@ -125,10 +127,9 @@ const TextEditor = ( props ) => {
           contentEditable={true}
           suppressContentEditableWarning={true}
           className={styles.span}
-          // style={{color:`${fontColor}`, background: `${backgroundColor}`, fontSize: fontSize}}
           onInput={(event) => newTextChange(event)}
         >
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          Lire Ilium has been the industry's standard dummy text ever since the 1500s.
         </span>
       </div>
       <div>
