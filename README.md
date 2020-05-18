@@ -1,4 +1,4 @@
-**---Welcome to my 'Text Redactor'---**
+**---Welcome to my Text Redactor---**
 
 How to use this text editor:
 1. installing it on a computer
